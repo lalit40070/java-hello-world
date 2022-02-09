@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite  name="FirstTestScriptUsingWebDriverSuite">
+   <test name="FirstTestScriptUsingWebDriver" >
+       <classes>
+           <class name="LambdaTest.FirstTestScriptUsingWebDriver" >
+           </class>
+       </classes>
+   </test>
+</suite>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite  name="FirstTestScriptUsingWebDriverSuite">
+   <test name="FirstTestScriptUsingWebDriver" >
+       <classes>
+           <class name="LambdaTest.FirstTestScriptUsingWebDriver" >
+           </class>
+       </classes>
+   </test>
+</suite>test
