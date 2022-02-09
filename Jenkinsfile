@@ -2,6 +2,7 @@ pipeline {
     agent any
     options {
         buildDiscarder logRotator(daysToKeepStr: '5', numToKeepStr: '10')
+        properties([pipelineTriggers([pollSCM('H */1 * * *')])])
     }
     stages {
         stage('Compile and Clean') { 
