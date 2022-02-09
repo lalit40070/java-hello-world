@@ -16,6 +16,22 @@ pipeline {
                 sh "mvn -f my-app/pom.xml test"
             }
         }
+        
+        
+        
+        stage('email notification') { 
+            steps {             
+                emailext attachmentsPattern: '**/emailable-report.html', body: '''Hi ,
+                please approve it.''', subject: 'Selenium test report', to: 'lalitkr2506@gmail.com'
+            }
+        }   
+        stage('approval') {
+             steps { 
+               input "Deploy to prod?"
+          }
+        } 
+        
+        
         stage('package') { 
             steps {
                 sh "mvn -f my-app/pom.xml package"
