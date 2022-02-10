@@ -12,6 +12,14 @@ pipeline {
         }
         
         
+        stage('test') { 
+            steps {
+
+                sh "mvn -f my-app/pom.xml test"
+            }
+        }
+        
+        
         stage('email notification') { 
             steps {
                 mail bcc: '', body: '''Hi welcome to jenkins email alerts
