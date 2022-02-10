@@ -19,13 +19,7 @@ pipeline {
         }
        
         
-        stage('email notification') { 
-            steps {
-                mail bcc: '', body: '''Hi welcome to jenkins email alerts
-                deploy started''', cc: '', from: '', replyTo: '', subject: 'jenkins job', to: 'lalitkr2506@gmail.com'
-            }
-        }
-        
+      
         
         
         
