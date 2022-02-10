@@ -19,12 +19,7 @@ pipeline {
         
         
         
-        stage('email notification') { 
-            steps {             
-                emailext attachmentsPattern: '**/emailable-report.html', body: '''Hi ,
-                please approve it.''', subject: 'Selenium test report', to: 'lalitkr2506@gmail.com'
-            }
-        }   
+        
         stage('approval') {
              steps { 
                input "Deploy to prod?"
