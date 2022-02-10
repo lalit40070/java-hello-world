@@ -30,7 +30,7 @@ pipeline {
     stage('Build Docker Image') {
             steps {
                 script {
-                  sh 'docker build -t lalitkr2506/my-app-1.2:${BUILD_NUMBER}.'
+                  sh 'docker build -t lalitkr2506/my-app-1.2:${BUILD_NUMBER} .'
                 }
             }
         }
