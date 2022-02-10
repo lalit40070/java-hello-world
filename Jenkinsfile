@@ -10,12 +10,7 @@ pipeline {
                 sh "mvn -f my-app/pom.xml clean compile"
             }
         }
-        stage('test') { 
-            steps {
-
-                sh "mvn -f my-app/pom.xml test"
-            }
-        }
+        
         
         stage('email notification') { 
             steps {
