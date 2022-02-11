@@ -17,12 +17,7 @@ pipeline {
                 sh "mvn -f my-app/pom.xml test"
             }
         }
-       
-        
-      
-        
-        
-        
+             
         stage('package') { 
             steps {
                 sh "mvn -f my-app/pom.xml package"
@@ -36,7 +31,7 @@ pipeline {
     stage('Build Docker Image') {
             steps {
                 script {
-                  sh 'docker build -t lalitkr2506/my-app-1.2:${BUILD_NUMBER} .'
+                  sh 'docker build -t lalitkr2506/my-app-main:${BUILD_NUMBER} .'
                 }
             }
         }
