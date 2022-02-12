@@ -61,13 +61,5 @@ pipeline {
                 }
             }
         }  
-      stage('Deploy Application') {
-             steps {
-                 script {
-                     sh 'ssh root@13.234.186.212 docker run -d --name test-qa lalitkr2506/my-app-main:${BUILD_NUMBER}'
-                    }
-                 }
-             }
-         }
     }
 }
