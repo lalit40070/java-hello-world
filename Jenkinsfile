@@ -28,7 +28,22 @@ pipeline {
                  archiveArtifacts '**/target/*.jar'
             }
         }
-    stage('Build Docker Image') {
+    
+        
+        stage('SonarQube analysis')  {
+            steps {
+                 withSonarQubeEnv('sonarqube') {
+                   sh 'mvn -f my-app/pom.xml sonar:sonar'
+                 }
+           }
+        }
+        
+        
+        
+        
+        
+        
+        stage('Build Docker Image') {
             steps {
                 script {
                   sh 'docker build -t lalitkr2506/my-app-main:${BUILD_NUMBER} .'
