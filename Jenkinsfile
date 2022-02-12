@@ -47,6 +47,7 @@ pipeline {
                  }  
                  sh 'docker push lalitkr2506/my-app-developer:${BUILD_NUMBER}'
                  sh 'docker rmi lalitkr2506/my-app-developer:${BUILD_NUMBER}'
+                 sh 'ssh root@3.110.169.65 docker run -d --name lalit-developer-${BUILD_NUMBER} lalitkr2506/my-app-qa:${BUILD_NUMBER} '
                 }
             }
         }  
