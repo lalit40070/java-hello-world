@@ -2,7 +2,9 @@ pipeline {
     agent any
     options {
         buildDiscarder logRotator(daysToKeepStr: '5', numToKeepStr: '10')
-        options { timestamps () }
+    }
+        options {
+            timestamps ()
     }
     stages {
         stage('Compile and Clean') { 
