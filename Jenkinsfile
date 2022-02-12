@@ -57,6 +57,7 @@ pipeline {
                     sh 'docker login -u lalitkr2506 -p ${dockerhubpwd}'
                  }  
                  sh 'docker push lalitkr2506/my-app-main:${BUILD_NUMBER}'
+                 sh 'docker rmi lalitkr2506/my-app-main:${BUILD_NUMBER}'
                 }
             }
         }  
