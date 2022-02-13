@@ -10,18 +10,14 @@ pipeline {
                 sh "mvn -f my-app/pom.xml clean compile"
             }
         }
-        
-        
+               
         stage('test') { 
             steps {
 
                 sh "mvn -f my-app/pom.xml test"
             }
         }
-        
-      
-        
-        
+     
         stage('package') { 
             steps {
                 sh "mvn -f my-app/pom.xml package"
@@ -32,7 +28,16 @@ pipeline {
                  archiveArtifacts '**/target/*.jar'
             }
         }
-    stage('Build Docker Image') {
+  
+        stage('SonarQube analysis')  {
+            steps {
+                 withSonarQubeEnv('sonarqube') {
+                   sh 'mvn -f my-app/pom.xml sonar:sonar'
+                 }
+           }
+        }
+        
+        stage('Build Docker Image') {
             steps {
                 script {
                   sh 'docker build -t lalitkr2506/my-app-developer:${BUILD_NUMBER} .'
