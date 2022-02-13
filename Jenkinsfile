@@ -27,8 +27,7 @@ pipeline {
                  archiveArtifacts '**/target/*.jar'
             }
         }
-    
-        
+      
         stage('SonarQube analysis')  {
             steps {
                  withSonarQubeEnv('sonarqube') {
@@ -36,12 +35,7 @@ pipeline {
                  }
            }
         }
-        
-        
-        
-        
-        
-        
+    
         stage('Build Docker Image') {
             steps {
                 script {
@@ -49,7 +43,8 @@ pipeline {
                 }
             }
         }
-  stage('Push Docker Image') {
+ 
+        stage('Push Docker Image') {
             steps {
                 script {
                  withCredentials([string(credentialsId: 'lalitkr2506', variable: 'dockerhubpwd')]) {
