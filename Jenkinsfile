@@ -31,7 +31,7 @@ pipeline {
         
         stage('SonarQube analysis')  {
             steps {
-                 withSonarQubeEnv('sonarqube-9.3') {
+                 withSonarQubeEnv('sonarqube-8.5.1') {
                    sh 'mvn -f my-app/pom.xml sonar:sonar'
                  }
            }
