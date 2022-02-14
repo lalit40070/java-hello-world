@@ -29,6 +29,14 @@ pipeline {
             }
         }
   
+        stage('SonarQube analysis')  {
+            steps {
+                 withSonarQubeEnv('sonarqube-8.5.1') {
+                   sh 'mvn -f my-app/pom.xml sonar:sonar'
+                 }
+           }
+        }
+        
         stage('Build Docker Image') {
             steps {
                 script {
