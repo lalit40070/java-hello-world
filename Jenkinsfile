@@ -44,7 +44,7 @@ pipeline {
                 }
             }
         }
-  stage('Docker Tag Image') {
+  stage('ECR Login') {
             steps {
                 script {
                    sh 'aws ecr get-login-password --region ap-south-1 | docker login --username AWS --password-stdin 226100319488.dkr.ecr.ap-south-1.amazonaws.com'
@@ -54,7 +54,7 @@ pipeline {
         stage('Docker Tag Image') {
             steps {
                 script {
-                 sh 'docker push dockerrepo:${BUILD_NUMBER} 226100319488.dkr.ecr.ap-south-1.amazonaws.com/dockerrepo:${BUILD_NUMBER}'
+                 sh 'docker tag dockerrepo:${BUILD_NUMBER} 226100319488.dkr.ecr.ap-south-1.amazonaws.com/dockerrepo:${BUILD_NUMBER}'
                 }
             }
         }  
