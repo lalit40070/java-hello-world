@@ -51,12 +51,20 @@ pipeline {
                 }
             }
         }  
-        stage('Docker Push Image') {
+        stage('Docker Tag Image') {
             steps {
                 script {
-                 sh 'docker tag dockerrepo:${BUILD_NUMBER} 226100319488.dkr.ecr.ap-south-1.amazonaws.com/dockerrepo:${BUILD_NUMBER}'
+                 sh 'docker push dockerrepo:${BUILD_NUMBER} 226100319488.dkr.ecr.ap-south-1.amazonaws.com/dockerrepo:${BUILD_NUMBER}'
                 }
             }
         }  
+   stage('Docker Push Image') {
+            steps {
+                script {
+                 sh 'docker push 226100319488.dkr.ecr.ap-south-1.amazonaws.com/dockerrepo:${BUILD_NUMBER}'
+                }
+            }
+        }  
+    
     }
 }
