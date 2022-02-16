@@ -51,7 +51,7 @@ pipeline {
                 }
             }
         }  
-        stage('Docker Tag Image') {
+        stage('Docker Push Image') {
             steps {
                 script {
                  sh 'docker tag dockerrepo:${BUILD_NUMBER} 226100319488.dkr.ecr.ap-south-1.amazonaws.com/dockerrepo:${BUILD_NUMBER}'
