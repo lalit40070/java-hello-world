@@ -25,13 +25,7 @@ pipeline {
                 sh "mvn -f my-app/pom.xml test"
             }
         }
-  
-        stage('approval') {
-             steps { 
-               input "Deploy to prod?"
-          }
-        } 
-     
+ 
         stage('package') { 
             steps {
                 sh "mvn -f my-app/pom.xml package"
