@@ -1,5 +1,7 @@
 pipeline {
-    agent any
+    agent {
+         label 'dev'
+          }
     options {
         buildDiscarder logRotator(daysToKeepStr: '5', numToKeepStr: '10')
     }
