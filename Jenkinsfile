@@ -54,6 +54,14 @@ pipeline {
                 sh 'docker rmi lalitkr2506/my-app-main:${BUILD_NUMBER}'
                 }
             }
-        }  
+  stage('Deployemt with kubernetes') {
+            steps {
+                script {
+                  sh 'kubectl apply -f .'
+                }
+            }
+        }    
+  
+      }  
     }
 }
