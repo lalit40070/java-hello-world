@@ -44,7 +44,7 @@ pipeline {
                 }
             }
         }
-  stage('Push Docker Image') {
+        stage('Push Docker Image') {
             steps {
                 script {
                  withCredentials([string(credentialsId: 'lalitkr2506', variable: 'dockerhubpwd')]) {
@@ -54,7 +54,7 @@ pipeline {
                 sh 'docker rmi lalitkr2506/my-app-main:${BUILD_NUMBER}'
                 }
             }
-  stage('Deployemt with kubernetes') {
+        stage('Deployemt with kubernetes') {
             steps {
                 script {
                   sh 'kubectl apply -f .'
