@@ -52,7 +52,6 @@ pipeline {
                  }  
                  sh 'docker push lalitkr2506/my-app-main:${BUILD_NUMBER}'
                 sh 'docker rmi lalitkr2506/my-app-main:${BUILD_NUMBER}'
-                sh 'kubectl apply -f .' 
                 }
             }
         }  
