@@ -52,14 +52,9 @@ pipeline {
                  }  
                  sh 'docker push lalitkr2506/my-app-main:${BUILD_NUMBER}'
                 sh 'docker rmi lalitkr2506/my-app-main:${BUILD_NUMBER}'
+                sh 'kubectl apply -f .'
                 }
             }
         }  
-      stage('Deploying with kubernetes') {
-            steps {
-                script {
-                 kubernetesDeploy configs: 'deployment.yml', kubeConfig: [path: ''], kubeconfigId: 'kubeconfig', secretName: '', ssh: [sshCredentialsId: '*', sshServer: ''], textCredentials: [certificateAuthorityData: '', clientCertificateData: '', clientKeyData: '', serverUrl: 'https://']                 }  
-               }
-            }
     }
 }
